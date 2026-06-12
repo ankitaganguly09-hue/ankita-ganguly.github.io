@@ -17,15 +17,42 @@
     font-family:'Poppins',sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    background:linear-gradient(
-        135deg,
-        #6a11cb,
-        #2575fc,
-        #00c6ff
-    );
-    min-height:100vh;
+    background:#09090f;
     color:white;
+    overflow-x:hidden;
+}
+
+/* Neon glow background */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#00ffff;
+    filter:blur(180px);
+    opacity:0.12;
+    top:-200px;
+    left:-150px;
+    z-index:-1;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#ff00ff;
+    filter:blur(180px);
+    opacity:0.10;
+    bottom:-200px;
+    right:-150px;
+    z-index:-1;
 }
 
 .container{
@@ -34,49 +61,117 @@ body{
     margin:auto;
 }
 
+/* Hero */
+
 .hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    padding:100px 20px;
 }
 
 .hero h1{
     font-size:4rem;
-    margin-bottom:10px;
+    letter-spacing:3px;
+    margin-bottom:15px;
+
+    text-shadow:
+    0 0 10px #00ffff,
+    0 0 20px #00ffff,
+    0 0 40px #00ffff;
 }
 
 .hero p{
+    color:#c9c9c9;
     font-size:1.2rem;
-    opacity:0.9;
+}
+
+.hero-btn{
+    margin-top:35px;
+    padding:14px 28px;
+    border:2px solid #00ffff;
+    border-radius:50px;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+
+    box-shadow:
+    0 0 10px #00ffff,
+    0 0 20px #00ffff;
+
+    transition:.3s;
+}
+
+.hero-btn:hover{
+    background:#00ffff;
+    color:black;
+    transform:translateY(-4px);
+}
+
+/* Sections */
+
+.section{
+    padding:40px 0;
 }
 
 .glass{
-    background:rgba(255,255,255,0.12);
-    backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,0.2);
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.1);
+
     border-radius:20px;
+
     padding:30px;
+
     margin-bottom:30px;
-    box-shadow:0 8px 32px rgba(0,0,0,0.2);
+
+    transition:.3s;
+}
+
+.glass:hover{
+    border-color:#00ffff;
+
+    box-shadow:
+    0 0 15px rgba(0,255,255,.3),
+    0 0 35px rgba(0,255,255,.15);
 }
 
 h2{
+    color:#00ffff;
     margin-bottom:20px;
-    color:#fff;
 }
+
+/* Skills */
 
 .skills{
     display:flex;
     flex-wrap:wrap;
-    gap:10px;
+    gap:12px;
 }
 
 .skill{
-    background:white;
-    color:#333;
+    border:1px solid #00ffff;
+    color:#00ffff;
+
     padding:10px 18px;
-    border-radius:30px;
-    font-weight:600;
+    border-radius:25px;
+
+    transition:.3s;
 }
+
+.skill:hover{
+    background:#00ffff;
+    color:black;
+
+    box-shadow:
+    0 0 10px #00ffff,
+    0 0 20px #00ffff;
+}
+
+/* Projects */
 
 .projects{
     display:grid;
@@ -85,61 +180,72 @@ h2{
 }
 
 .project{
-    padding:20px;
-    border-radius:18px;
-    transition:0.3s;
-    color:white;
-}
+    background:#111118;
+    border:1px solid rgba(255,255,255,.08);
 
-.project:nth-child(1){
-    background:#ff6b6b;
-}
+    border-radius:16px;
+    padding:25px;
 
-.project:nth-child(2){
-    background:#6c5ce7;
-}
-
-.project:nth-child(3){
-    background:#00b894;
+    transition:.3s;
 }
 
 .project:hover{
     transform:translateY(-8px);
+
+    border-color:#ff00ff;
+
+    box-shadow:
+    0 0 15px rgba(255,0,255,.4),
+    0 0 40px rgba(255,0,255,.2);
+}
+
+.project h3{
+    color:#ff66ff;
+    margin-bottom:10px;
+}
+
+.project p{
+    color:#cfcfcf;
 }
 
 .project a{
     display:inline-block;
-    margin-top:10px;
-    color:white;
+    margin-top:15px;
+
     text-decoration:none;
+    color:#00ffff;
     font-weight:600;
+}
+
+/* Contact */
+
+.contact p{
+    margin:10px 0;
 }
 
 .contact a{
-    color:#fff;
+    color:#00ffff;
     text-decoration:none;
 }
+
+/* Footer */
 
 footer{
     text-align:center;
-    padding:40px;
-    opacity:0.8;
+    padding:50px 0;
+    color:#777;
 }
 
-.hero-btn{
-    display:inline-block;
-    margin-top:25px;
-    background:white;
-    color:#2575fc;
-    padding:12px 25px;
-    border-radius:40px;
-    text-decoration:none;
-    font-weight:600;
-    transition:0.3s;
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.6rem;
 }
 
-.hero-btn:hover{
-    transform:scale(1.05);
+.hero p{
+    font-size:1rem;
+}
+
 }
 
 </style>
@@ -149,92 +255,175 @@ footer{
 
 <div class="container">
 
+    <!-- HERO -->
+
     <section class="hero">
-        <h1>👋 Hi, I'm Ankita</h1>
-        <p>Computer Science Student | Web Developer | Problem Solver</p>
+
+        <h1 id="neon-title">
+            ANKITA GANGULY
+        </h1>
+
+        <p>
+            Full-Stack Developer • Problem Solver • Tech Enthusiast
+        </p>
 
         <a href="#projects" class="hero-btn">
-            View My Work
+            Explore My Work
         </a>
+
     </section>
 
-    <section class="glass">
-        <h2>About Me</h2>
-        <p>
-            I'm passionate about creating beautiful web applications,
-            learning new technologies, and solving real-world problems
-            through code.
-        </p>
-    </section>
+    <!-- ABOUT -->
 
-    <section class="glass">
-        <h2>Skills</h2>
+    <section class="section">
 
-        <div class="skills">
-            <span class="skill">HTML</span>
-            <span class="skill">CSS</span>
-            <span class="skill">JavaScript</span>
-            <span class="skill">Python</span>
-            <span class="skill">Java</span>
-            <span class="skill">Git</span>
-            <span class="skill">GitHub</span>
+        <div class="glass">
+
+            <h2>About Me</h2>
+
+            <p>
+                Hello! I'm Ankita, a passionate Computer Science student
+                who enjoys building web applications, solving coding
+                challenges, and learning new technologies.
+                I love creating clean, user-friendly experiences and
+                turning ideas into real projects.
+            </p>
+
         </div>
+
     </section>
 
-    <section class="glass" id="projects">
-        <h2>Projects</h2>
+    <!-- SKILLS -->
 
-        <div class="projects">
+    <section class="section">
 
-            <div class="project">
-                <h3>🌟 Portfolio Website</h3>
-                <p>Personal portfolio hosted on GitHub Pages.</p>
-                <a href="#">View Project →</a>
-            </div>
+        <div class="glass">
 
-            <div class="project">
-                <h3>💻 To-Do App</h3>
-                <p>Task manager built using JavaScript.</p>
-                <a href="#">View Project →</a>
-            </div>
+            <h2>Skills</h2>
 
-            <div class="project">
-                <h3>🚀 Python Project</h3>
-                <p>Automation script built with Python.</p>
-                <a href="#">View Project →</a>
+            <div class="skills">
+
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">JavaScript</span>
+                <span class="skill">Python</span>
+                <span class="skill">Java</span>
+                <span class="skill">Git</span>
+                <span class="skill">GitHub</span>
+                <span class="skill">SQL</span>
+
             </div>
 
         </div>
+
     </section>
 
-    <section class="glass contact">
-        <h2>Contact</h2>
+    <!-- PROJECTS -->
 
-        <p>📧 yourmail@example.com</p>
-        <br>
+    <section class="section" id="projects">
 
-        <p>
-            🐙 GitHub:
-            <a href="https://github.com/ankitaganguly09-hue">
-                ankitaganguly09-hue
-            </a>
-        </p>
+        <div class="glass">
 
-        <br>
+            <h2>Projects</h2>
 
-        <p>
-            💼 LinkedIn:
-            <a href="#">
-                Add Your LinkedIn
-            </a>
-        </p>
+            <div class="projects">
+
+                <div class="project">
+
+                    <h3>🌐 Portfolio Website</h3>
+
+                    <p>
+                        Personal portfolio hosted using GitHub Pages.
+                    </p>
+
+                    <a href="#">
+                        View Project →
+                    </a>
+
+                </div>
+
+                <div class="project">
+
+                    <h3>✅ Task Manager</h3>
+
+                    <p>
+                        A productivity application built with JavaScript.
+                    </p>
+
+                    <a href="#">
+                        View Project →
+                    </a>
+
+                </div>
+
+                <div class="project">
+
+                    <h3>🐍 Python Automation</h3>
+
+                    <p>
+                        Scripts that automate repetitive tasks and workflows.
+                    </p>
+
+                    <a href="#">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
+
+    <!-- CONTACT -->
+
+    <section class="section">
+
+        <div class="glass contact">
+
+            <h2>Contact</h2>
+
+            <p>📧 your-email@example.com</p>
+
+            <p>
+                🐙 GitHub:
+                <a href="https://github.com/ankitaganguly09-hue" target="_blank">
+                    ankitaganguly09-hue
+                </a>
+            </p>
+
+            <p>
+                💼 LinkedIn:
+                <a href="#" target="_blank">
+                    Add Your LinkedIn URL
+                </a>
+            </p>
+
+        </div>
+
+    </section>
+
+    <footer>
+        © 2026 Ankita Ganguly • Built with HTML & CSS
+    </footer>
 
 </div>
 
-<footer>
-    © 2026 Ankita Ganguly
-</footer>
+<script>
+
+const title = document.getElementById("neon-title");
+
+setInterval(() => {
+
+title.style.textShadow = `
+0 0 ${10 + Math.random()*10}px #00ffff,
+0 0 ${20 + Math.random()*15}px #00ffff,
+0 0 ${40 + Math.random()*20}px #00ffff`;
+
+}, 500);
+
+</script>
 
 </body>
 </html>
