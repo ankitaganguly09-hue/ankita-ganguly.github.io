@@ -3,128 +3,237 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Ankita Ganguly | Portfolio</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-    background:#f5f5f5;
-    color:#333;
-}
-
-header{
-    background:#24292e;
+    background:linear-gradient(
+        135deg,
+        #6a11cb,
+        #2575fc,
+        #00c6ff
+    );
+    min-height:100vh;
     color:white;
-    text-align:center;
-    padding:50px 20px;
 }
 
-header h1{
-    font-size:3rem;
-}
-
-header p{
-    margin-top:10px;
-}
-
-section{
-    max-width:900px;
+.container{
+    width:90%;
+    max-width:1100px;
     margin:auto;
-    padding:40px 20px;
 }
 
-.card{
+.hero{
+    text-align:center;
+    padding:100px 20px;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:10px;
+}
+
+.hero p{
+    font-size:1.2rem;
+    opacity:0.9;
+}
+
+.glass{
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:20px;
+    padding:30px;
+    margin-bottom:30px;
+    box-shadow:0 8px 32px rgba(0,0,0,0.2);
+}
+
+h2{
+    margin-bottom:20px;
+    color:#fff;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.skill{
     background:white;
-    padding:20px;
-    margin-top:20px;
-    border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    color:#333;
+    padding:10px 18px;
+    border-radius:30px;
+    font-weight:600;
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
 }
 
 .project{
-    margin-bottom:15px;
+    padding:20px;
+    border-radius:18px;
+    transition:0.3s;
+    color:white;
 }
 
-a{
-    color:#0366d6;
+.project:nth-child(1){
+    background:#ff6b6b;
+}
+
+.project:nth-child(2){
+    background:#6c5ce7;
+}
+
+.project:nth-child(3){
+    background:#00b894;
+}
+
+.project:hover{
+    transform:translateY(-8px);
+}
+
+.project a{
+    display:inline-block;
+    margin-top:10px;
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.contact a{
+    color:#fff;
     text-decoration:none;
 }
 
 footer{
     text-align:center;
-    padding:20px;
-    background:#24292e;
-    color:white;
+    padding:40px;
+    opacity:0.8;
 }
+
+.hero-btn{
+    display:inline-block;
+    margin-top:25px;
+    background:white;
+    color:#2575fc;
+    padding:12px 25px;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.hero-btn:hover{
+    transform:scale(1.05);
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Ankita Ganguly</h1>
-    <p>Web Developer | Programmer | Student</p>
-</header>
+<div class="container">
 
-<section>
-    <div class="card">
+    <section class="hero">
+        <h1>👋 Hi, I'm Ankita</h1>
+        <p>Computer Science Student | Web Developer | Problem Solver</p>
+
+        <a href="#projects" class="hero-btn">
+            View My Work
+        </a>
+    </section>
+
+    <section class="glass">
         <h2>About Me</h2>
         <p>
-            I am a passionate developer who enjoys building web
-            applications and learning new technologies.
+            I'm passionate about creating beautiful web applications,
+            learning new technologies, and solving real-world problems
+            through code.
         </p>
-    </div>
+    </section>
 
-    <div class="card">
+    <section class="glass">
         <h2>Skills</h2>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>Python</li>
-            <li>Git & GitHub</li>
-        </ul>
-    </div>
 
-    <div class="card">
+        <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">Python</span>
+            <span class="skill">Java</span>
+            <span class="skill">Git</span>
+            <span class="skill">GitHub</span>
+        </div>
+    </section>
+
+    <section class="glass" id="projects">
         <h2>Projects</h2>
 
-        <div class="project">
-            <h3>IncidentIQ</h3>
-            <p>AI-powered incident analysis system (inspired by real life experience) for network security RCA using RAG, LangChain, and multi-agent reasoning.</p>
-            <a href="https://github.com/ankitaganguly09-hue/IncidentIQ_AI_Powered_Network_Security_Incident_RCA_System.git">
-                View Project
-            </a>
+        <div class="projects">
+
+            <div class="project">
+                <h3>🌟 Portfolio Website</h3>
+                <p>Personal portfolio hosted on GitHub Pages.</p>
+                <a href="#">View Project →</a>
+            </div>
+
+            <div class="project">
+                <h3>💻 To-Do App</h3>
+                <p>Task manager built using JavaScript.</p>
+                <a href="#">View Project →</a>
+            </div>
+
+            <div class="project">
+                <h3>🚀 Python Project</h3>
+                <p>Automation script built with Python.</p>
+                <a href="#">View Project →</a>
+            </div>
+
         </div>
+    </section>
 
-        <div class="project">
-            <h3>Project Two</h3>
-            <p>Short description of the project.</p>
-            <a href="#">View Project</a>
-        </div>
-
-    </div>
-
-    <div class="card">
+    <section class="glass contact">
         <h2>Contact</h2>
-        <p>Email: ankita.ganguly09@gmail.com</p>
+
+        <p>📧 yourmail@example.com</p>
+        <br>
+
         <p>
-            GitHub:
-            <a href="https://github.com/yourusername">
-                github.com/ankitaganguly09-hue
+            🐙 GitHub:
+            <a href="https://github.com/ankitaganguly09-hue">
+                ankitaganguly09-hue
             </a>
         </p>
-    </div>
-</section>
+
+        <br>
+
+        <p>
+            💼 LinkedIn:
+            <a href="#">
+                Add Your LinkedIn
+            </a>
+        </p>
+    </section>
+
+</div>
 
 <footer>
-    <p>© 2026 Ankita Ganguly</p>
+    © 2026 Ankita Ganguly
 </footer>
 
 </body>
